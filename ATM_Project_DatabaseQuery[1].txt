@@ -1,0 +1,46 @@
+
+----------------------------------------------------------------------------------------------------------------------------
+For set fix lentgh of Number
+----------------------------------------------------------------------------------------------------------------------------
+ALTER TABLE account ADD COLUMN accountNo_length TINYINT GENERATED ALWAYS AS (CHAR_LENGTH(accountNo)),ADD CONSTRAINT check_accountNo_length CHECK (accountNo_length = 11);
+
+=========================================================================
+
+----------------------------------------------------------------------------------------------------------
+For fixed value of account Status
+--------------------------------------------------------------------------------------------------------------------------------------------
+ALTER TABLE account 
+ADD CONSTRAINT check_accountStatus CHECK (accountStatus IN ('Active', 'Deactive'));
+==================================================================
+
+--------------------------------------------------------------------------------------------------------------------------------------------
+for cardStatus fix value
+--------------------------------------------------------------------------------------------------------------------------------------------
+ALTER TABLE card
+ADD CONSTRAINT check_cardStatus CHECK (cardStatus IN ('Active', 'Blocked'));
+==============================================================================
+
+
+ALTER TABLE your_table_name MODIFY COLUMN cardNo ENUM() NOT NULL;
+
+ALTER TABLE card MODIFY COLUMN ADD CONSTRAINT chk_cardNo_length CHECK (cardNo REGEXP '^[0-9]{16}$');
+
+Alter TABLE CARD ADD COLUMN cardNo_length TINYINT GENERATED ALWAYS AS (CHAR_LENGTH(cardNo)),ADD CONSTRAINT check_cardNo_length CHECK (cardNo_length = 16);
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+ALTER TABLE customer ADD COLUMN customerId_length TINYINT GENERATED ALWAYS AS (CHAR_LENGTH(customerID)),ADD CONSTRAINT check_customerId_length CHECK (customerId_length = 11);
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+ALTER TABLE customer ADD COLUMN aadharCard_length TINYINT GENERATED ALWAYS AS (CHAR_LENGTH(aadharCard)),ADD CONSTRAINT check_aadharCard_length CHECK (aadharCard_length = 12);
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+ALTER TABLE customer ADD COLUMN mobile_length TINYINT GENERATED ALWAYS AS (CHAR_LENGTH(mobile)),ADD CONSTRAINT check_mobile_length CHECK (mobile_length = 10);
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+ ALTER TABLE customer ADD CONSTRAINT check_gender CHECK (GENDER IN ('M', 'F'));
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
